@@ -23,9 +23,15 @@ Los datos se intercambian como JSON y se guardan temporalmente en listas en memo
 src/main/java/com/lab/apis
 ├── config       Configuración de OpenAPI
 ├── controller   Endpoints REST
+│   ├── ejercicio1   Controlador de libros
+│   ├── ejercicio2   Controlador de cursos
+│   └── ejercicio3   Controlador de reservas
 ├── dto          Requests y respuestas HTTP
 ├── exception    Excepciones y manejo global de errores
-├── model        Entidades y estados
+├── model        Entidades, estados y diseños OpenAPI
+│   ├── ejercicio1y4   Libros, README y libros-api.yaml
+│   ├── ejercicio2y5   Cursos, README y cursos-api.yaml
+│   └── ejercicio3y6   Reservas, README y reservas-api.yaml
 ├── repository   Listas en memoria
 ├── service      Reglas de negocio
 └── ApisApplication.java

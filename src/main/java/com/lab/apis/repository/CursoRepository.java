@@ -1,6 +1,6 @@
 package com.lab.apis.repository;
 
-import com.lab.apis.model.Curso;
+import com.lab.apis.model.ejercicio2y5.Curso;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

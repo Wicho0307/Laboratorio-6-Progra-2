@@ -1,6 +1,6 @@
 package com.lab.apis.dto;
 
-import com.lab.apis.model.EstadoReserva;
+import com.lab.apis.model.ejercicio3y6.EstadoReserva;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

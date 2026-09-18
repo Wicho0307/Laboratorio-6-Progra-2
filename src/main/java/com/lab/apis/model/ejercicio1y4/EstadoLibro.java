@@ -1,4 +1,4 @@
-package com.lab.apis.model;
+package com.lab.apis.model.ejercicio1y4;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 

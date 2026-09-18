@@ -1,6 +1,6 @@
 package com.lab.apis.repository;
 
-import com.lab.apis.model.Reserva;
+import com.lab.apis.model.ejercicio3y6.Reserva;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,6 @@
 package com.lab.apis.repository;
 
-import com.lab.apis.model.Libro;
+import com.lab.apis.model.ejercicio1y4.Libro;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

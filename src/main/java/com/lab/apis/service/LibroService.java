@@ -3,7 +3,7 @@ package com.lab.apis.service;
 import com.lab.apis.dto.LibroRequest;
 import com.lab.apis.exception.RecursoDuplicadoException;
 import com.lab.apis.exception.RecursoNoEncontradoException;
-import com.lab.apis.model.Libro;
+import com.lab.apis.model.ejercicio1y4.Libro;
 import com.lab.apis.repository.LibroRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;

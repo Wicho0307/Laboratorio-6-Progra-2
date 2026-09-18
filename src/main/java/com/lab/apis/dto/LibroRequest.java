@@ -1,6 +1,6 @@
 package com.lab.apis.dto;
 
-import com.lab.apis.model.EstadoLibro;
+import com.lab.apis.model.ejercicio1y4.EstadoLibro;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;

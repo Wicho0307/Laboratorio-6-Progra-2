@@ -3,7 +3,7 @@ package com.lab.apis.service;
 import com.lab.apis.dto.CursoRequest;
 import com.lab.apis.exception.RecursoDuplicadoException;
 import com.lab.apis.exception.RecursoNoEncontradoException;
-import com.lab.apis.model.Curso;
+import com.lab.apis.model.ejercicio2y5.Curso;
 import com.lab.apis.repository.CursoRepository;
 import java.util.List;
 import org.springframework.stereotype.Service;

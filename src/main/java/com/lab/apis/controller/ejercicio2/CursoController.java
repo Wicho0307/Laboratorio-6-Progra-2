@@ -1,9 +1,9 @@
-package com.lab.apis.controller;
+package com.lab.apis.controller.ejercicio2;
 
 import com.lab.apis.dto.ApiError;
 import com.lab.apis.dto.ApiResponse;
 import com.lab.apis.dto.CursoRequest;
-import com.lab.apis.model.Curso;
+import com.lab.apis.model.ejercicio2y5.Curso;
 import com.lab.apis.service.CursoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

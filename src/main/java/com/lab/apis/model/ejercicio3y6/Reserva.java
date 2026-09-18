@@ -1,4 +1,4 @@
-package com.lab.apis.model;
+package com.lab.apis.model.ejercicio3y6;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.time.LocalDate;

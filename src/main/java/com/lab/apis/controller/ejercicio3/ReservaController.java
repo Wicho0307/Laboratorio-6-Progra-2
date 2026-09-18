@@ -1,9 +1,9 @@
-package com.lab.apis.controller;
+package com.lab.apis.controller.ejercicio3;
 
 import com.lab.apis.dto.ApiError;
 import com.lab.apis.dto.ApiResponse;
 import com.lab.apis.dto.ReservaRequest;
-import com.lab.apis.model.Reserva;
+import com.lab.apis.model.ejercicio3y6.Reserva;
 import com.lab.apis.service.ReservaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

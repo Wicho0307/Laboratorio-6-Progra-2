@@ -1,9 +1,9 @@
-package com.lab.apis.controller;
+package com.lab.apis.controller.ejercicio1;
 
 import com.lab.apis.dto.ApiError;
 import com.lab.apis.dto.ApiResponse;
 import com.lab.apis.dto.LibroRequest;
-import com.lab.apis.model.Libro;
+import com.lab.apis.model.ejercicio1y4.Libro;
 import com.lab.apis.service.LibroService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

@@ -1,0 +1,214 @@
+openapi: 3.1.0
+info:
+  title: API de reservas de hotel
+  version: 1.0.0
+  description: Diseño del API solicitado en el ejercicio 3 e implementado en el ejercicio 6 del Laboratorio 6.
+servers:
+  - url: http://localhost:8081
+    description: Servidor local
+tags:
+  - name: Reservas
+    description: Administración de reservas de hotel
+paths:
+  /api/reservas:
+    post:
+      tags: [Reservas]
+      summary: Crear una reserva
+      operationId: crearReserva
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservaRequest'
+      responses:
+        '201':
+          description: Reserva creada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservaResponse'
+        '400':
+          description: Datos o fechas inválidos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+    get:
+      tags: [Reservas]
+      summary: Consultar todas las reservas
+      operationId: consultarReservas
+      responses:
+        '200':
+          description: Lista de reservas obtenida correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListaReservasResponse'
+  /api/reservas/{id}:
+    get:
+      tags: [Reservas]
+      summary: Consultar una reserva por id
+      operationId: consultarReservaPorId
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Reserva encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservaResponse'
+        '404':
+          description: Reserva no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+    put:
+      tags: [Reservas]
+      summary: Actualizar completamente una reserva
+      operationId: actualizarReserva
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReservaRequest'
+      responses:
+        '200':
+          description: Reserva actualizada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservaResponse'
+        '400':
+          description: Datos o fechas inválidos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+        '404':
+          description: Reserva no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+  /api/reservas/{id}/cancelar:
+    patch:
+      tags: [Reservas]
+      summary: Cancelar una reserva
+      operationId: cancelarReserva
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Reserva cancelada correctamente
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReservaResponse'
+        '400':
+          description: La reserva no puede cancelarse
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+        '404':
+          description: Reserva no encontrada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiError'
+components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      description: Identificador de la reserva
+      schema:
+        type: integer
+        format: int64
+        minimum: 1
+  schemas:
+    EstadoReserva:
+      type: string
+      enum: [PENDIENTE, CONFIRMADA, CANCELADA, FINALIZADA]
+    ReservaRequest:
+      type: object
+      required: [nombreCliente, habitacion, fechaEntrada, fechaSalida, estado]
+      properties:
+        nombreCliente:
+          type: string
+          maxLength: 120
+          example: Ana López
+        habitacion:
+          type: string
+          maxLength: 20
+          example: 204B
+        fechaEntrada:
+          type: string
+          format: date
+          example: '2026-10-15'
+        fechaSalida:
+          type: string
+          format: date
+          example: '2026-10-18'
+        estado:
+          $ref: '#/components/schemas/EstadoReserva'
+    Reserva:
+      allOf:
+        - type: object
+          required: [id]
+          properties:
+            id:
+              type: integer
+              format: int64
+              example: 1
+        - $ref: '#/components/schemas/ReservaRequest'
+    ReservaResponse:
+      type: object
+      required: [mensaje, datos]
+      properties:
+        mensaje:
+          type: string
+          example: Reserva creada correctamente
+        datos:
+          $ref: '#/components/schemas/Reserva'
+    ListaReservasResponse:
+      type: object
+      required: [mensaje, datos]
+      properties:
+        mensaje:
+          type: string
+          example: Lista de reservas obtenida correctamente
+        datos:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reserva'
+    ApiError:
+      type: object
+      required: [fecha, codigo, error, mensaje, ruta, validaciones]
+      properties:
+        fecha:
+          type: string
+          format: date-time
+        codigo:
+          type: integer
+          example: 404
+        error:
+          type: string
+          example: Not Found
+        mensaje:
+          type: string
+          example: No existe una reserva con id: 99
+        ruta:
+          type: string
+          example: /api/reservas/99
+        validaciones:
+          type: object
+          additionalProperties:
+            type: string
