@@ -1,0 +1,109 @@
+{
+  "info": {
+    "_postman_id": "bdd91a33-07e8-4f83-9587-8bc55d69db06",
+    "name": "APIs REST - Laboratorio 6",
+    "description": "Pruebas de las APIs de libros, cursos y reservas.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "Libros",
+      "item": [
+        {
+          "name": "Registrar libro",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Cien años de soledad\",\n  \"autor\": \"Gabriel García Márquez\",\n  \"isbn\": \"9780307474728\",\n  \"anioPublicacion\": 1967,\n  \"estado\": \"DISPONIBLE\"\n}"
+            },
+            "url": "{{baseUrl}}/api/libros"
+          }
+        },
+        { "name": "Consultar libros", "request": { "method": "GET", "url": "{{baseUrl}}/api/libros" } },
+        { "name": "Consultar por título", "request": { "method": "GET", "url": "{{baseUrl}}/api/libros/titulo/Cien%20a%C3%B1os%20de%20soledad" } },
+        {
+          "name": "Actualizar libro",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"titulo\": \"Cien años de soledad\",\n  \"autor\": \"Gabriel García Márquez\",\n  \"isbn\": \"9780307474728\",\n  \"anioPublicacion\": 1967,\n  \"estado\": \"PRESTADO\"\n}"
+            },
+            "url": "{{baseUrl}}/api/libros/1"
+          }
+        },
+        { "name": "Eliminar libro", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/libros/1" } }
+      ]
+    },
+    {
+      "name": "Cursos",
+      "item": [
+        {
+          "name": "Crear curso",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Programación II\",\n  \"codigo\": \"CC-202\",\n  \"creditos\": 4,\n  \"estado\": \"ACTIVO\"\n}"
+            },
+            "url": "{{baseUrl}}/api/cursos"
+          }
+        },
+        { "name": "Consultar cursos", "request": { "method": "GET", "url": "{{baseUrl}}/api/cursos" } },
+        { "name": "Consultar por código", "request": { "method": "GET", "url": "{{baseUrl}}/api/cursos/codigo/CC-202" } },
+        {
+          "name": "Actualizar curso",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Programación II\",\n  \"codigo\": \"CC-202\",\n  \"creditos\": 5,\n  \"estado\": \"ACTIVO\"\n}"
+            },
+            "url": "{{baseUrl}}/api/cursos/1"
+          }
+        },
+        { "name": "Eliminar curso", "request": { "method": "DELETE", "url": "{{baseUrl}}/api/cursos/1" } }
+      ]
+    },
+    {
+      "name": "Reservas",
+      "item": [
+        {
+          "name": "Crear reserva",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreCliente\": \"Ana López\",\n  \"habitacion\": \"204B\",\n  \"fechaEntrada\": \"2026-10-15\",\n  \"fechaSalida\": \"2026-10-18\",\n  \"estado\": \"CONFIRMADA\"\n}"
+            },
+            "url": "{{baseUrl}}/api/reservas"
+          }
+        },
+        { "name": "Consultar reservas", "request": { "method": "GET", "url": "{{baseUrl}}/api/reservas" } },
+        { "name": "Consultar por id", "request": { "method": "GET", "url": "{{baseUrl}}/api/reservas/1" } },
+        {
+          "name": "Actualizar reserva",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombreCliente\": \"Ana López\",\n  \"habitacion\": \"305\",\n  \"fechaEntrada\": \"2026-10-15\",\n  \"fechaSalida\": \"2026-10-19\",\n  \"estado\": \"CONFIRMADA\"\n}"
+            },
+            "url": "{{baseUrl}}/api/reservas/1"
+          }
+        },
+        { "name": "Cancelar reserva", "request": { "method": "PATCH", "url": "{{baseUrl}}/api/reservas/1/cancelar" } }
+      ]
+    }
+  ]
+}
