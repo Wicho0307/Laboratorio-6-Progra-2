@@ -39,13 +39,13 @@ Desde la raíz del proyecto:
 .\mvnw.cmd spring-boot:run
 ```
 
-La aplicación queda disponible en `http://localhost:8080`.
+La aplicación queda disponible en `http://localhost:8081`.
 
 Documentación:
 
-- Swagger UI: `http://localhost:8080/swagger-ui.html`
-- OpenAPI JSON: `http://localhost:8080/v3/api-docs`
-- OpenAPI YAML: `http://localhost:8080/v3/api-docs.yaml`
+- Swagger UI: `http://localhost:8081/swagger-ui.html`
+- OpenAPI JSON: `http://localhost:8081/v3/api-docs`
+- OpenAPI YAML: `http://localhost:8081/v3/api-docs.yaml`
 
 ## Diseño de endpoints
 
